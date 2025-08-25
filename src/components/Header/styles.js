@@ -2,7 +2,7 @@ import { css } from "@emotion/react";
 
 export const navBar = css`
   position: fixed;
-  z-index: 1000;
+  z-index: 900;
   width: 100vw;
   height: 58px;
   padding: 8px 0;
@@ -16,12 +16,12 @@ export const navBar = css`
     margin: 0 10px;
     width: 100%;
     height: 100%;
-
     padding: 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
     list-style: none;
+    box-sizing: border-box;
 
     & > li {
       display: flex;
@@ -65,12 +65,60 @@ export const sideBarToggleBtn = (toggled) => css`
 `;
 
 export const user = css`
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 42px;
   height: 42px;
   transition: all 0.2s ease;
   border-radius: 25px;
   &:hover {
     background-color: #eee;
+  }
+`;
+
+export const authBtnContainer = css`
+  & > div {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 5px;
     
+
+    & > button {
+      border: none;
+      border-radius: 12px;
+      padding: 12px 20px;
+      box-shadow: 0px 0px 6px 1px rgba(0,0,0,0.25);
+      cursor: pointer;
+      transition: all 0.1s ease-in;
+
+      &:hover {
+        transform: translateY(-2px);
+      }
+
+      &:active {
+        transform: translateY(0);
+      }
+    }
+
+    & > #signinBtn {
+      background-color: #0061f2;
+      color: #fff;
+
+      &:active {
+        background-color: #0c5dd7;
+        color: #eee;
+      }
+    }
+
+    & > #signupBtn {
+      background-color: #eee;
+
+
+      &:active {
+        background-color: #c6c6c6;
+      }
+    }
   }
 `;
