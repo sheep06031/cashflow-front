@@ -10,12 +10,13 @@ function SignInModal({ onClose, setIsLogin }) {
   const navigate = useNavigate();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [message, setMessage] = useState("");
 
   const signinOnSubmitHandler = (e) => {
     e.preventDefault();
 
     if (username.trim().length === 0 || password.trim().length === 0) {
-      alert("아이디 또는 비밀번호를 입력해주세요.");
+      setMessage("Please fill in both username and password");
       return;
     } else {
       signinRequest({
@@ -27,15 +28,14 @@ function SignInModal({ onClose, setIsLogin }) {
             localStorage.setItem("accessToken", response.data.data);
             setIsLogin(true);
             onClose();
-            alert(response.data.message);
             navigate("/overview");
           } else if (response.data.status === "failed") {
-            alert(response.data.message);
+            setMessage(response.data.message);
             return;
           }
         })
         .catch((error) => {
-          alert(error.message);
+          setIsLogin(error.message);
         });
     }
   };
@@ -48,13 +48,13 @@ function SignInModal({ onClose, setIsLogin }) {
             <IoClose />
           </button>
         </div>
-        <h2>Sign In</h2>
+        <h1>Sign In</h1>
         <form onSubmit={signinOnSubmitHandler}>
           <input
             type="text"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
-            placeholder="Id"
+            placeholder="ID"
           />
           <input
             type="password"
@@ -63,6 +63,9 @@ function SignInModal({ onClose, setIsLogin }) {
             placeholder="Password"
           />
           <button type="submit">Sign In</button>
+          <div className={`error-box ${message ? "show" : ""}`}>
+            <p>{message}</p>
+          </div>
         </form>
       </div>
     </Modal>

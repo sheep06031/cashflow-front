@@ -1,6 +1,6 @@
 import { css } from "@emotion/react";
 
-export const signInBox = css`
+export const signupBox = css`
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -23,7 +23,6 @@ export const signInBox = css`
     gap: 5px;
     margin: 10px 0;
     width: 100%;
-    
 
     & > input {
       width: 60%;
@@ -94,5 +93,28 @@ export const headerRow = css`
     &:hover {
       color: red;
     }
+  }
+`;
+
+export const loadingBox = css`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  & > h1 {
+    margin: 5px 0;
+  }
+`;
+
+export const successBox = css`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  & > h1 {
+    margin: 5px 0;
   }
 `;

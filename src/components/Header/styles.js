@@ -5,7 +5,7 @@ export const navBar = css`
   z-index: 900;
   width: 100vw;
   height: 58px;
-  padding: 8px 0;
+  padding: 8px 10px;
   background-color: #fff;
   display: flex;
   align-items: center;
@@ -64,16 +64,27 @@ export const sideBarToggleBtn = (toggled) => css`
   `}
 `;
 
-export const user = css`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 42px;
-  height: 42px;
-  transition: all 0.2s ease;
-  border-radius: 25px;
-  &:hover {
-    background-color: #eee;
+export const userContainer = css`
+  & > div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+    gap: 10px;
+
+    & > P {
+      width: 42px;
+      height: 42px;
+      transition: all 0.2s ease;
+      border-radius: 25px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      &:hover {
+        background-color: #eee;
+      }
+    }
   }
 `;
 
@@ -83,13 +94,12 @@ export const authBtnContainer = css`
     align-items: center;
     justify-content: space-around;
     gap: 5px;
-    
 
     & > button {
       border: none;
       border-radius: 12px;
       padding: 12px 20px;
-      box-shadow: 0px 0px 6px 1px rgba(0,0,0,0.25);
+      box-shadow: 0px 0px 6px 0.5px rgba(0, 0, 0, 0.3);
       cursor: pointer;
       transition: all 0.1s ease-in;
 
@@ -115,10 +125,15 @@ export const authBtnContainer = css`
     & > #signupBtn {
       background-color: #eee;
 
-
       &:active {
         background-color: #c6c6c6;
       }
     }
   }
+`;
+
+export const logo = css`
+  width: 150px;
+  height: auto;
+  object-fit: cover;
 `;
