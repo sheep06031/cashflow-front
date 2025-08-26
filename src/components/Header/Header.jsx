@@ -9,11 +9,14 @@ import SignInModal from "../Modal/SigninModal/SigninModal";
 import SignUpModal from "../Modal/SignupModal/SignupModal";
 import logo from "../../assets/headerlogo.png";
 import { MdLogout } from "react-icons/md";
+import { useQueryClient } from "@tanstack/react-query";
 
-function Header({ toggled, setToggled, isLogin, setIsLogin }) {
+function Header({ toggled, setToggled }) {
   const [openSignin, setOpenSignin] = useState(false);
   const [openSignup, setOpenSignup] = useState(false);
   const navigate = useNavigate();
+  const queryClient = useQueryClient();
+  const principalData = queryClient.getQueryData(["getPrincipal"]);
 
   const onClickNavHandler = (path) => {
     navigate(path);
@@ -21,14 +24,13 @@ function Header({ toggled, setToggled, isLogin, setIsLogin }) {
 
   const onClickLogoutBtn = () => {
     localStorage.removeItem("accessToken");
+    queryClient.removeQueries(["getPrincipal"]);
     window.location.href = "/";
   };
 
   return (
     <nav css={s.navBar}>
-      {!isLogin ? (
-        <></>
-      ) : (
+      {principalData ? (
         <button
           css={s.sideBarToggleBtn(toggled)}
           onClick={() => {
@@ -37,6 +39,8 @@ function Header({ toggled, setToggled, isLogin, setIsLogin }) {
         >
           <IoIosMenu />
         </button>
+      ) : (
+        <></>
       )}
 
       <ul>
@@ -47,17 +51,8 @@ function Header({ toggled, setToggled, isLogin, setIsLogin }) {
         >
           <img src={logo} alt="CashFlow Logo" css={s.logo} />
         </li>
-        <li css={!isLogin ? s.authBtnContainer : s.userContainer}>
-          {!isLogin ? (
-            <div>
-              <button id="signinBtn" onClick={() => setOpenSignin(true)}>
-                Sign in
-              </button>
-              <button id="signupBtn" onClick={() => setOpenSignup(true)}>
-                Sign up
-              </button>
-            </div>
-          ) : (
+        {principalData ? (
+          <li css={s.userContainer}>
             <div>
               <p onClick={() => onClickLogoutBtn()}>
                 <MdLogout />
@@ -66,16 +61,22 @@ function Header({ toggled, setToggled, isLogin, setIsLogin }) {
                 <FaUser />
               </p>
             </div>
-          )}
-        </li>
+          </li>
+        ) : (
+          <li css={s.authBtnContainer}>
+            <div>
+              <button id="signinBtn" onClick={() => setOpenSignin(true)}>
+                Sign in
+              </button>
+              <button id="signupBtn" onClick={() => setOpenSignup(true)}>
+                Sign up
+              </button>
+            </div>
+          </li>
+        )}
       </ul>
 
-      {openSignin && (
-        <SignInModal
-          onClose={() => setOpenSignin(false)}
-          setIsLogin={setIsLogin}
-        />
-      )}
+      {openSignin && <SignInModal onClose={() => setOpenSignin(false)} />}
       {openSignup && <SignUpModal onClose={() => setOpenSignup(false)} />}
     </nav>
   );

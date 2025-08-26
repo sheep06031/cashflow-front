@@ -26,3 +26,13 @@ export const sendMailRequest = async (data) => {
     return error.response;
   }
 };
+
+
+export const getPrincipalRequest = async () => {
+  try {
+    const response = await instance.get("/auth/principal");
+    return response;
+  } catch (error) {
+    return error.response;
+  }
+};

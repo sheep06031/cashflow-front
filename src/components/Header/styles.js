@@ -44,11 +44,12 @@ export const sideBarToggleBtn = (toggled) => css`
   border: none;
   background-color: transparent;
   transition: all 0.2s ease;
+  border-radius: 25px;
   cursor: pointer;
 
   &:hover {
     background-color: #eee;
-    border-radius: 25px;
+    
   }
 
   &:active {
@@ -59,8 +60,6 @@ export const sideBarToggleBtn = (toggled) => css`
   css`
     background-color: #eee;
     color: black;
-    border-radius: 25px;
-    border: 1px solid gray;
   `}
 `;
 

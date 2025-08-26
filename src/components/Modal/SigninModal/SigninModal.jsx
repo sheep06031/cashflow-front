@@ -5,12 +5,14 @@ import { IoClose } from "react-icons/io5";
 import { signinRequest } from "../../../apis/auth/authApis";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { useQueryClient } from "@tanstack/react-query";
 
-function SignInModal({ onClose, setIsLogin }) {
+function SignInModal({ onClose }) {
   const navigate = useNavigate();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
+  const queryClient = useQueryClient();
 
   const signinOnSubmitHandler = (e) => {
     e.preventDefault();
@@ -26,16 +28,15 @@ function SignInModal({ onClose, setIsLogin }) {
         .then((response) => {
           if (response.data.status === "success") {
             localStorage.setItem("accessToken", response.data.data);
-            setIsLogin(true);
             onClose();
-            navigate("/overview");
+            window.location.href = "/overview"
           } else if (response.data.status === "failed") {
             setMessage(response.data.message);
             return;
           }
         })
         .catch((error) => {
-          setIsLogin(error.message);
+          setMessage(error.message);
         });
     }
   };
