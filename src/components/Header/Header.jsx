@@ -9,14 +9,19 @@ import SignInModal from "../Modal/SigninModal/SigninModal";
 import SignUpModal from "../Modal/SignupModal/SignupModal";
 import logo from "../../assets/headerlogo.png";
 import { MdLogout } from "react-icons/md";
-import { useQueryClient } from "@tanstack/react-query";
+import { useQuery, useQueryClient } from "@tanstack/react-query";
+import { getPrincipalRequest } from "../../apis/auth/authApis";
 
 function Header({ toggled, setToggled }) {
   const [openSignin, setOpenSignin] = useState(false);
   const [openSignup, setOpenSignup] = useState(false);
   const navigate = useNavigate();
   const queryClient = useQueryClient();
-  const principalData = queryClient.getQueryData(["getPrincipal"]);
+  const { data: principalData, isLoading } = useQuery({
+    queryKey: ["getPrincipal"],
+    queryFn: getPrincipalRequest,
+    enabled: !!localStorage.getItem("accessToken"),
+  });
 
   const onClickNavHandler = (path) => {
     navigate(path);
@@ -30,7 +35,9 @@ function Header({ toggled, setToggled }) {
 
   return (
     <nav css={s.navBar}>
-      {principalData ? (
+      {isLoading ? (
+        <>Loading...</>
+      ) : principalData ? (
         <button
           css={s.sideBarToggleBtn(toggled)}
           onClick={() => {
@@ -51,7 +58,9 @@ function Header({ toggled, setToggled }) {
         >
           <img src={logo} alt="CashFlow Logo" css={s.logo} />
         </li>
-        {principalData ? (
+        {isLoading ? (
+          <>Loading...</>
+        ) : principalData ? (
           <li css={s.userContainer}>
             <div>
               <p onClick={() => onClickLogoutBtn()}>

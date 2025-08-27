@@ -1,4 +1,13 @@
-import { css } from "@emotion/react";
+import { css, keyframes } from "@emotion/react";
+
+const fadeIn = keyframes`
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+`;
 
 export const overlay = css`
   position: fixed;
@@ -9,5 +18,7 @@ export const overlay = css`
   justify-content: center;
   align-items: center;
   z-index: 2000;
+
+  animation: ${fadeIn} 0.25s ease-out;
 `;
 

@@ -6,10 +6,14 @@ import { useEffect, useState } from "react";
 import dayjs from "dayjs";
 import MonthPicker from "../../components/MonthPicker/MonthPicker";
 import { getTransactionListRequest } from "../../apis/transaction/transactionApis";
+import TransactionOverview from "../../components/TransactionOverview/TransactionOverview";
+import AreaChart from "../../components/AreaChart/AreaChart";
+import PieChart from "../../components/PieChart/PieChart";
 
 function Overview() {
   const [date, setDate] = useState(dayjs());
   const [transactionList, setTransactionList] = useState([]);
+  const [allTransactionList, setAllTransactionList] = useState([]);
   const [loading, setLoading] = useState(true);
 
   const getTransactionList = () => {
@@ -18,7 +22,7 @@ function Overview() {
       .then((response) => {
         if (response.data.status === "success") {
           const allTx = response.data.data;
-
+          setAllTransactionList(allTx);
           const selectedMonth = dayjs(date).format("YYYY-MM");
 
           const filtered = allTx.filter(
@@ -69,6 +73,16 @@ function Overview() {
               incidunt eum dolorem dolor.
             </div>
           </div>
+          <div css={s.chartContainer}>
+            <div css={s.chartContainer}>
+              <div css={s.chartCard}>
+                <AreaChart transactions={allTransactionList} date={date} />
+              </div>
+              <div css={s.chartCard}>
+                <PieChart transactions={allTransactionList} date={date} />
+              </div>
+            </div>
+          </div>
           <div css={s.cardContainer}>
             <div css={s.card("#0061f2")}>
               <div>
@@ -82,7 +96,7 @@ function Overview() {
             <div css={s.card("red")}>
               <div>
                 <span>Spending</span>
-                <p>$1,200</p>
+                <p>{transactionList.reduce((sum, tx) => sum + tx.cost, 0)}$</p>
               </div>
               <div id="sign">
                 <FaTag />
@@ -107,18 +121,15 @@ function Overview() {
               </div>
             </div>
           </div>
+          <div css={s.transactionContainer}></div>
           {loading ? (
             <p>Loading...</p>
           ) : transactionList && transactionList.length > 0 ? (
-            transactionList.map((tx) => (
-              <div key={tx.transactionId}>
-                <p>
-                  {tx.transactionDt} - {tx.spendingType}
-                </p>
-                <p>
-                  {tx.cost}원 : {tx.description}
-                </p>
-              </div>
+            transactionList.map((transaction) => (
+              <TransactionOverview
+                key={transaction.transactionId}
+                transaction={transaction}
+              />
             ))
           ) : (
             <p>There are no Transactions to show up</p>

@@ -12,20 +12,21 @@ export const background = css`
       no-repeat,
     #f2f6fc;
 
-
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
+  
 `;
 
 export const defaultForm = css`
   width: 1100px;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
+  padding-bottom: 80px;
 `;
 
 export const headerContainer = css`
@@ -61,6 +62,7 @@ export const aiFeedBackCard = css`
   padding: 30px;
   box-shadow: 0 0.15rem 1.75rem #21283226;
   margin-bottom: 20px;
+  color: #333;
 
   & > p {
     margin: 5px 0 10px;
@@ -74,6 +76,7 @@ export const cardContainer = css`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 20px;
 `;
 
 export const card = (color) => css`
@@ -105,4 +108,28 @@ export const card = (color) => css`
     font-size: 62px;
     color: #68686880;
   }
+`;
+
+export const chartContainer = css`
+  width: 100%;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  height: 350px;
+  gap: 30px;
+`;
+
+export const chartCard = css`
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+  border-radius: 12px;
+  padding: 10px;
+  box-shadow: 0 0.15rem 1.75rem #21283226;
+`;
+
+export const transactionContainer = css`
+  margin-bottom: 20px;
 `;
