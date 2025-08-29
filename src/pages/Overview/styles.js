@@ -16,7 +16,6 @@ export const background = css`
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  
 `;
 
 export const defaultForm = css`
@@ -54,82 +53,29 @@ export const headerContainer = css`
   }
 `;
 
-export const aiFeedBackCard = css`
-  width: 100%;
-  height: auto;
-  background-color: #fff;
-  border-radius: 12px;
-  padding: 30px;
-  box-shadow: 0 0.15rem 1.75rem #21283226;
-  margin-bottom: 20px;
-  color: #333;
 
-  & > p {
-    margin: 5px 0 10px;
-    font-size: 25px;
-    font-weight: 500;
-  }
-`;
-
-export const cardContainer = css`
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 20px;
-`;
-
-export const card = (color) => css`
-  padding: 22px;
-  width: 260px;
-  height: 120px;
-  border-radius: 12px;
-  background-color: #fff;
-  border-left: 5px solid ${color};
-  box-sizing: border-box;
-  box-shadow: 0 0.15rem 1.75rem #21283226;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  & > div {
-    & > span {
-      color: ${color};
-      font-size: 14px;
-    }
-
-    & > p {
-      margin: 8px 0 8px;
-      font-size: 18px;
-      color: #363d47;
-    }
-  }
-
-  #sign {
-    font-size: 62px;
-    color: #68686880;
-  }
-`;
 
 export const chartContainer = css`
   width: 100%;
-  margin-bottom: 20px;
   display: flex;
-  justify-content: space-between;
-  height: 350px;
-  gap: 30px;
+  gap: 10px;
+  margin-bottom: 20px;
 `;
 
+
 export const chartCard = css`
-  flex: 1;
+  width: 100%;
+  height: 350px; 
   display: flex;
   justify-content: center;
   align-items: center;
   background: #fff;
   border-radius: 12px;
-  padding: 10px;
+  padding: 20px;
   box-shadow: 0 0.15rem 1.75rem #21283226;
 `;
 
 export const transactionContainer = css`
+  width: 100%;
   margin-bottom: 20px;
 `;

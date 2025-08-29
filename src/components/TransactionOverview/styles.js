@@ -11,8 +11,7 @@ export const container = css`
   border-radius: 12px;
   border-radius: 12px;
   background: #fff;
-  box-shadow:  7px 7px 15px #dce0e5,
-             -7px -7px 15px #ffffff;
+  box-shadow: 7px 7px 15px #dce0e5, -7px -7px 15px #ffffff;
   color: #333;
   transition: all 0.2s ease;
   cursor: pointer;
@@ -36,8 +35,8 @@ export const container = css`
 `;
 
 export const circle = (color) => css`
-  width: 8px;
-  height: 8px;
+  width: 12px;
+  height: 12px;
   border-radius: 12px;
   background-color: ${color};
 `;
@@ -47,3 +46,5 @@ export const date = css`
   align-items: center;
   justify-content: space-around;
 `;
+
+

@@ -5,36 +5,36 @@ import dayjs from "dayjs";
 
 ChartJS.register(ArcElement, Tooltip, Legend, Title);
 
-function PieChart({ transactions, date }) {
+function PieChartByCategory({ transactions, date }) {
   const selectedMonth = dayjs(date).format("YYYY-MM");
 
-  const spendingByType = {};
+  const spendingByCategory = {};
   transactions.forEach((tx) => {
     const txMonth = dayjs(tx.transactionDt).format("YYYY-MM");
     if (txMonth === selectedMonth && tx.cost > 0) {
-      const type = tx.spendingType || "Other";
-      if (!spendingByType[type]) spendingByType[type] = 0;
-      spendingByType[type] += Math.abs(tx.cost);
+      const category = tx.category || "Other";
+      if (!spendingByCategory[category]) spendingByCategory[category] = 0;
+      spendingByCategory[category] += Math.abs(tx.cost);
     }
   });
 
-  const labels = Object.keys(spendingByType);
-  const values = Object.values(spendingByType);
+  const generateColors = (count) => {
+    return Array.from({ length: count }, (_, i) => {
+      const hue = Math.floor((360 / count) * i); // 색상 원형 분할
+      return `hsl(${hue}, 70%, 60%)`;
+    });
+  };
+
+  const labels = Object.keys(spendingByCategory);
+  const values = Object.values(spendingByCategory);
 
   const data = {
     labels,
     datasets: [
       {
-        label: "Spending by Type",
+        label: "Spending by Category",
         data: values,
-        backgroundColor: [
-          "rgba(255, 99, 132, 0.6)",
-          "rgba(54, 162, 235, 0.6)",
-          "rgba(255, 206, 86, 0.6)",
-          "rgba(75, 192, 192, 0.6)",
-          "rgba(153, 102, 255, 0.6)",
-          "rgba(255, 159, 64, 0.6)",
-        ],
+        backgroundColor: generateColors(labels.length),
         borderColor: "#fff",
         borderWidth: 2,
       },
@@ -45,17 +45,14 @@ function PieChart({ transactions, date }) {
     responsive: true,
     plugins: {
       legend: {
-        position: "bottom",
-        labels: {
-          usePointStyle: true,
-          padding: 20,
-        },
+        display: false,
       },
       title: {
         display: true,
-        text: `Spending by Type - ${selectedMonth}`,
+        text: `Spending by Category - ${selectedMonth}`,
       },
       tooltip: {
+        enabled: true, 
         callbacks: {
           label: (context) =>
             `${context.label}: ₩${context.parsed.toLocaleString()}`,
@@ -67,4 +64,4 @@ function PieChart({ transactions, date }) {
   return <Doughnut data={data} options={options} />;
 }
 
-export default PieChart;
+export default PieChartByCategory;

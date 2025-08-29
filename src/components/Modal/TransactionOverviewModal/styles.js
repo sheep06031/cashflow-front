@@ -42,7 +42,10 @@ export const content = css`
   color: #444;
   font-size: 15px;
 
+
   & > p {
+    display: flex;
+    gap: 15px;
     margin: 0;
     line-height: 1.5;
   }

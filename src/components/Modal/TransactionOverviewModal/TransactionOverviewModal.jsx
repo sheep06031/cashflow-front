@@ -4,7 +4,7 @@ import Modal from "../Modal";
 import * as s from "./styles";
 
 function TransactionOverviewModal({ onClose, transaction }) {
-  const { transactionDt, cost, spendingType, description } = transaction;
+  const { transactionDt, cost, spendingType, category ,description } = transaction;
   return (
     <Modal onClose={onClose}>
       <div css={s.container}>
@@ -19,10 +19,13 @@ function TransactionOverviewModal({ onClose, transaction }) {
             <strong>Date:</strong> {transactionDt}
           </p>
           <p>
-            <strong>Cost:</strong> {cost}원
+            <strong>Cost:</strong>${cost}
           </p>
           <p>
             <strong>Type:</strong> {spendingType}
+          </p>
+          <p>
+            <strong>category:</strong> {category}
           </p>
           <p>
             <strong>Detail:</strong> {description}
