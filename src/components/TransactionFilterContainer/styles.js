@@ -1,7 +1,7 @@
 import { css } from "@emotion/react";
 
 export const filterContainer = css`
-  width: 100%;
+  width: auto;
   display: flex;
   justify-content: flex-end;
 

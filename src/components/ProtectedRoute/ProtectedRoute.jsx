@@ -2,7 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import { Navigate, Outlet } from "react-router-dom";
 import { getPrincipalRequest } from "../../apis/auth/authApis";
 
-function ProtectedRoute() {
+function ProtectedRoute({ children }) {
   const accessToken = localStorage.getItem("accessToken");
   const { data: principalData, isLoading } = useQuery({
     queryKey: ["getPrincipal"],
@@ -22,7 +22,7 @@ function ProtectedRoute() {
     return <Navigate to="/" replace />;
   }
 
-  return <Outlet />;
+  return children;
 }
 
 export default ProtectedRoute;

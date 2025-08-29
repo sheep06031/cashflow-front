@@ -6,7 +6,7 @@ export const background = css`
   background: linear-gradient(
         to bottom,
         #0061f2 0px,
-        #9805ed 260px,
+        #0061f2 260px,
         transparent 260px
       )
       no-repeat,
@@ -53,29 +53,36 @@ export const headerContainer = css`
   }
 `;
 
-
-
-export const chartContainer = css`
-  width: 100%;
-  display: flex;
-  gap: 10px;
-  margin-bottom: 20px;
-`;
-
-
-export const chartCard = css`
-  width: 100%;
-  height: 350px; 
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: #fff;
-  border-radius: 12px;
-  padding: 20px;
-  box-shadow: 0 0.15rem 1.75rem #21283226;
-`;
-
 export const transactionContainer = css`
   width: 100%;
   margin-bottom: 20px;
+`;
+
+export const filterContainer = css`
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+export const filterBtnContainer = css`
+  
+    gap: 2px;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    background-color: #0061f2;
+    color: white;
+    & > button {
+      border: none;
+      color: white;
+      background-color: transparent;
+    }
+
+    &:hover {
+      transform: translateY(-2px)
+    }
+  }
 `;

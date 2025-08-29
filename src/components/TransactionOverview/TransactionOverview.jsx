@@ -14,16 +14,16 @@ function TransactionOverview({ transaction }) {
         <div css={s.date}>
           <div
             css={s.circle(
-              spendingType === "income"
+              spendingType === "Income"
                 ? "green"
-                : spendingType === "expend"
+                : spendingType === "Expend"
                 ? "red"
                 : "blue"
             )}
           />
           <p>{transactionDt}</p>
         </div>
-        <p>{cost}</p>
+        <p>${cost}</p>
         <p>{spendingType}</p>
         <p>{category}</p>
         <p>{description}</p>

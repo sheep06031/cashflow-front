@@ -55,7 +55,7 @@ function PieChartByCategory({ transactions, date }) {
         enabled: true, 
         callbacks: {
           label: (context) =>
-            `${context.label}: ₩${context.parsed.toLocaleString()}`,
+            `${context.label}: $${context.parsed.toLocaleString()}`,
         },
       },
     },

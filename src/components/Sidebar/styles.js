@@ -40,3 +40,29 @@ export const subtitle = css`
 export const title = css`
   font-size: 14px;
 `;
+
+export const menuItem = (num) => css`
+  padding: 20px;
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+
+  & > div {
+    padding: 10px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: 18px;
+    font-weight: 500;
+    height: 40px;
+    gap: 7px;
+    color: #333;
+  }
+
+  & > div:nth-of-type(${num}) {
+    font-weight: 600;
+    color: #0061f2;
+  }
+`;
