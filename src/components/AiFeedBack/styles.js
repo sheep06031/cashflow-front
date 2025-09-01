@@ -17,11 +17,45 @@ export const aiFeedBackCard = css`
   }
 `;
 
-export const contentContainer = css`
+export const contentContainer = (expanded) => css`
+  position: relative;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
   min-height: 200px;
+  border-radius: 8px;
+  padding: 20px;
+  border: 1px solid #eee;
+  margin-bottom: 10px;
+
+  max-height: ${expanded ? "none" : "300px"};
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+
+  ${!expanded &&
+  `
+    &::after {
+      content: '...';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      text-align: center;
+      padding: 10px 0;
+      font-size: 40px;
+      font-weight: bold;
+      color: #666;
+      background: linear-gradient(transparent, #fff 70%);
+    }
+  `}
+
+  & > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
 `;
 
 export const btnContainer = css`
@@ -29,6 +63,7 @@ export const btnContainer = css`
   display: flex;
   align-items: center;
   justify-content: flex-end;
+  gap: 8px;
 
   & > button {
     height: 36px;
@@ -43,6 +78,11 @@ export const btnContainer = css`
     &:hover {
       transform: translateY(-2px);
       background-color: #0154d0;
+    }
+    &:disabled {
+      background-color: #ccc; 
+      cursor: not-allowed; 
+      transform: none; 
     }
   }
 `;
@@ -137,4 +177,36 @@ export const toggleContainer = css`
     font-size: 14px;
     margin: 0;
   }
+`;
+
+export const toggleBtn = css`
+  background: none;
+  border: none;
+  color: #0061f2;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  margin-top: 10px;
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: #004bb5;
+    text-decoration: underline;
+  }
+`;
+
+export const noFeedbackdiv = css`
+  width: 100%;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+export const loadingContainer = css`
+  border-radius: 8px;
+  border: 1px solid #eee;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;

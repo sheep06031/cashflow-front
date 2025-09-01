@@ -5,8 +5,8 @@ export const background = css`
   min-height: 100vh;
   background: linear-gradient(
         to bottom,
-        #0061f2 0px,
-        #9805ed 260px,
+        #667eea 0px,
+        #0061f2 260px,
         transparent 260px
       )
       no-repeat,
@@ -53,8 +53,6 @@ export const headerContainer = css`
   }
 `;
 
-
-
 export const chartContainer = css`
   width: 100%;
   display: flex;
@@ -62,10 +60,9 @@ export const chartContainer = css`
   margin-bottom: 20px;
 `;
 
-
 export const chartCard = css`
   width: 100%;
-  height: 350px; 
+  height: 350px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -78,4 +75,13 @@ export const chartCard = css`
 export const transactionContainer = css`
   width: 100%;
   margin-bottom: 20px;
+`;
+
+export const noTransactionContainer = css`
+  width: 100%;
+  margin: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 `;

@@ -1,17 +1,26 @@
 /** @jsxImportSource @emotion/react */
-import { useQueryClient } from "@tanstack/react-query";
 import * as s from "./styles";
-import { Link, useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
 import { GrGraphQl } from "react-icons/gr";
 import { MdOutlinePayment } from "react-icons/md";
+import { usePrincipalState } from "../../store/usePrincipalStore";
 
 function Sidebar({ toggled }) {
   const navigate = useNavigate();
-  const queryClient = useQueryClient();
-  const principalData = queryClient.getQueryData(["getPrincipal"]);
-  const principalUser = principalData?.data.data;
+  const { principal } = usePrincipalState();
+  const location = useLocation();
   const [selcted, setSelected] = useState(1);
+
+  useEffect(() => {
+    if (location.pathname.startsWith("/overview")) {
+      setSelected(1);
+    } else if (location.pathname.startsWith("/transaction")) {
+      setSelected(2);
+    } else if (location.pathname.startsWith("/feedback")) {
+      setSelected(3);
+    }
+  }, [location.pathname]);
 
   return (
     <aside css={s.sidebar(toggled)}>
@@ -31,7 +40,7 @@ function Sidebar({ toggled }) {
             setSelected(2);
           }}
         >
-<MdOutlinePayment />
+          <MdOutlinePayment />
           Transactions
         </div>
         <div
@@ -45,7 +54,7 @@ function Sidebar({ toggled }) {
       </div>
       <div css={s.footer}>
         <div css={s.subtitle}>Logged in as:</div>
-        <div>{principalUser?.username}</div>
+        <div>{principal?.username}</div>
       </div>
     </aside>
   );

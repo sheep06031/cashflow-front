@@ -8,6 +8,7 @@ function MainRouter() {
   return (
     <>
       <Routes>
+        <Route path="/" element={<Home />} />
         <Route
           path="/overview"
           element={
@@ -24,7 +25,7 @@ function MainRouter() {
             </ProtectedRoute>
           }
         />
-        <Route path="/" element={<Home />} />
+        
       </Routes>
     </>
   );

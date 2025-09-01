@@ -8,10 +8,8 @@ export const container = css`
   height: 50px;
   border-radius: 12px;
   margin-top: 10px;
-  border-radius: 12px;
-  border-radius: 12px;
   background: #fff;
-  box-shadow: 7px 7px 15px #dce0e5, -7px -7px 15px #ffffff;
+  box-shadow: 7px 7px 15px #dce0e5;
   color: #333;
   transition: all 0.2s ease;
   cursor: pointer;
@@ -147,5 +145,3 @@ export const editContainer = css`
     box-sizing: border-box;
   }
 `;
-
-

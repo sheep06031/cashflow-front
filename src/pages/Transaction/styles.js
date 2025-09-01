@@ -6,7 +6,7 @@ export const background = css`
   background: linear-gradient(
         to bottom,
         #0061f2 0px,
-        #0061f2 260px,
+        #7d82c2 260px,
         transparent 260px
       )
       no-repeat,
@@ -61,27 +61,9 @@ export const transactionContainer = css`
 export const filterContainer = css`
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
 `;
 
-export const filterBtnContainer = css`
-  gap: 2px;
-  display: flex;
-  align-items: center;
-  padding: 10px;
-  border: none;
-  border-radius: 6px;
-  background-color: #0061f2;
-  color: white;
-  & > button {
-    border: none;
-    color: white;
-    background-color: transparent;
-  }
 
-  &:hover {
-    transform: translateY(-2px);
-  }
-`;
 

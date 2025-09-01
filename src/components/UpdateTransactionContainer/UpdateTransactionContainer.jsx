@@ -36,7 +36,20 @@ function TransactionAddContainer({ transaction, setOnChange }) {
   };
 
   const updateBtnOnClickHandler = () => {
-    console.log("work1")
+    if (
+      !editData.transactionDt ||
+      !editData.spendingType ||
+      !editData.category.trim() ||
+      !editData.description.trim()
+    ) {
+      alert("Please fill in all fields.");
+      return;
+    }
+
+    if (!editData.cost || Number(editData.cost) <= 0) {
+      alert("Cost must be greater than 0.");
+      return;
+    }
     updateTransactionRequest({
       transactionId: transactionId,
       transactionDt: editData.transactionDt,
@@ -47,7 +60,6 @@ function TransactionAddContainer({ transaction, setOnChange }) {
     }).then((response) => {
       console.log(response.data)
       if (response.data.status === "success") {
-        console.log("work2")
         setOnChange((prev) => prev + 1);
         setEditMode(false);
         return;
@@ -55,7 +67,9 @@ function TransactionAddContainer({ transaction, setOnChange }) {
         alert(response.data.message);
         return;
       }
-    })
+    }).catch((error) => {
+        console.log(error.message);
+      })
   }
 
   const handleChange = (field, value) => {
@@ -89,7 +103,7 @@ function TransactionAddContainer({ transaction, setOnChange }) {
               <input
                 id="editCost"
                 value={editData.cost}
-                onChange={(e) => handleChange("cost", e.target.value)}
+                onChange={(e) => handleChange("cost", Number(e.target.value))}
               />
             </div>
 

@@ -1,25 +1,19 @@
-import { useQuery } from "@tanstack/react-query";
-import { Navigate, Outlet } from "react-router-dom";
-import { getPrincipalRequest } from "../../apis/auth/authApis";
+
+import { Navigate, useLocation } from "react-router-dom";
+import { useQueryClient } from "@tanstack/react-query";
 
 function ProtectedRoute({ children }) {
-  const accessToken = localStorage.getItem("accessToken");
-  const { data: principalData, isLoading } = useQuery({
-    queryKey: ["getPrincipal"],
-    queryFn: getPrincipalRequest,
-    enabled: !!accessToken,
-  });
+  const queryClient = useQueryClient();
+	const principalData = queryClient.getQueryData(["getPrincipal"]);
+  const location = useLocation();
 
-  if (!accessToken) {
+
+  if (principalData === undefined) {
     return <Navigate to="/" replace />;
   }
 
-  if (isLoading) {
-    return <div>Loading...</div>;
-  }
-
-  if (!principalData || principalData.data?.status === "failed") {
-    return <Navigate to="/" replace />;
+  if (principalData && location.pathname === "/") {
+    return <Navigate to="/overview" replace />;
   }
 
   return children;

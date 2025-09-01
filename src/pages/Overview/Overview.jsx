@@ -20,35 +20,35 @@ function Overview() {
   const [allTransactionList, setAllTransactionList] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  const getTransactionList = () => {
-    setLoading(true);
-    getTransactionListRequest()
-      .then((response) => {
-        if (response.data.status === "success") {
-          const allTx = response.data.data;
-          setAllTransactionList(allTx);
-          const selectedMonth = dayjs(date).format("YYYY-MM");
-
-          const filtered = allTx.filter(
-            (tx) => dayjs(tx.transactionDt).format("YYYY-MM") === selectedMonth
-          );
-
-          setTransactionList(filtered);
-          return;
-        } else if (response.data.status === "failed") {
-          console.log(response.data.message);
-          return;
-        }
-      })
-      .catch((error) => {
-        console.log(error.message);
-      })
-      .finally(() => {
-        setLoading(false);
-      });
-  };
-
   useEffect(() => {
+    const getTransactionList = () => {
+      setLoading(true);
+      getTransactionListRequest()
+        .then((response) => {
+          if (response.data.status === "success") {
+            const allTx = response.data.data;
+            setAllTransactionList(allTx);
+            const selectedMonth = dayjs(date).format("YYYY-MM");
+
+            const filtered = allTx.filter(
+              (tx) =>
+                dayjs(tx.transactionDt).format("YYYY-MM") === selectedMonth
+            );
+
+            setTransactionList(filtered);
+            return;
+          } else if (response.data.status === "failed") {
+            console.log(response.data.message);
+            return;
+          }
+        })
+        .catch((error) => {
+          console.log(error.message);
+        })
+        .finally(() => {
+          setLoading(false);
+        });
+    };
     getTransactionList();
   }, [date]);
 
@@ -62,7 +62,7 @@ function Overview() {
                 <GrGraphQl />
                 <span>Overview</span>
               </div>
-              <p>something ~~~~</p>
+              <p>Visualize your spending and income trends</p>
             </div>
             <div>
               <MonthPicker value={date} onChange={(prev) => setDate(prev)} />
@@ -94,8 +94,11 @@ function Overview() {
               date={date}
               setTransactionList={setTransactionList}
             />
+
             {loading ? (
-              <p>Loading...</p>
+              <div css={s.noTransactionContainer}>
+                <p>Loading...</p>
+              </div>
             ) : transactionList && transactionList.length > 0 ? (
               transactionList.map((transaction) => (
                 <TransactionOverview
@@ -104,7 +107,10 @@ function Overview() {
                 />
               ))
             ) : (
-              <p>There are no Transactions to show up</p>
+              <div css={s.noTransactionContainer}>
+                <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/Confused%20Face.png" alt="Confused Face" width="250" height="250" />
+                <h2>Oops... There are no transactions at the moment</h2>
+              </div>
             )}
           </div>
         </div>

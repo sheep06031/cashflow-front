@@ -73,10 +73,10 @@ function AddTransaction({ setOnChange, date }) {
         <div
           css={s.circle(
             newTransaction.spendingType === "Income"
-              ? "green"
+              ? "blue"
               : newTransaction.spendingType === "Expend"
               ? "red"
-              : "blue"
+              : "green"
           )}
         />
         <input
@@ -118,7 +118,7 @@ function AddTransaction({ setOnChange, date }) {
       />
       <div css={s.btnBox}>
         <button css={s.addBtn} onClick={addTransaction}>
-          <FaPlus />
+          Add<FaPlus />
         </button>
       </div>
     </div>

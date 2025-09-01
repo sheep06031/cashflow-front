@@ -16,6 +16,9 @@ export const AddTransactionContainer = css`
   transition: all 0.2s ease;
   overflow: hidden;
   padding: 0 10px;
+  border: 1px solid #28a745;
+  background: #f0fff4;
+
 
   & > div {
     height: 65%;
@@ -37,7 +40,12 @@ export const AddTransactionContainer = css`
 
   #addCost {
     width: 100px;
+    &::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+    }
   }
+
+  
 
   #addDescription {
     width: 230px;
@@ -78,11 +86,11 @@ export const circle = (color) => css`
 export const addBtn = css`
   border: none;
   padding: 5px 10px;
-  background-color: #0061f2;
+  background-color: #28a745;
   border-radius: 4px;
   color: white;
   cursor: pointer;
-  width: 30px;
+  gap: 8px;
   height: 30px;
   display: flex;
   justify-content: center;
@@ -90,7 +98,7 @@ export const addBtn = css`
   transition: all 0.2s ease;
 
   &:hover {
-    background-color: #0c5cd5;
+    background-color: #2d8d43;
     transform: translateY(-2px);
   }
 

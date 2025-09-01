@@ -18,35 +18,35 @@ function Transaction() {
   const [loading, setLoading] = useState(true);
   const [onChange, setOnChange] = useState("");
 
-  const getTransactionList = () => {
-    setLoading(true);
-    getTransactionListRequest()
-      .then((response) => {
-        if (response.data.status === "success") {
-          const allTx = response.data.data;
-          setAllTransactionList(allTx);
-          const selectedMonth = dayjs(date).format("YYYY-MM");
-
-          const filtered = allTx.filter(
-            (tx) => dayjs(tx.transactionDt).format("YYYY-MM") === selectedMonth
-          );
-
-          setTransactionList(filtered);
-          return;
-        } else if (response.data.status === "failed") {
-          console.log(response.data.message);
-          return;
-        }
-      })
-      .catch((error) => {
-        console.log(error.message);
-      })
-      .finally(() => {
-        setLoading(false);
-      });
-  };
-
   useEffect(() => {
+    const getTransactionList = () => {
+      setLoading(true);
+      getTransactionListRequest()
+        .then((response) => {
+          if (response.data.status === "success") {
+            const allTx = response.data.data;
+            setAllTransactionList(allTx);
+            const selectedMonth = dayjs(date).format("YYYY-MM");
+
+            const filtered = allTx.filter(
+              (tx) =>
+                dayjs(tx.transactionDt).format("YYYY-MM") === selectedMonth
+            );
+
+            setTransactionList(filtered);
+            return;
+          } else if (response.data.status === "failed") {
+            console.log(response.data.message);
+            return;
+          }
+        })
+        .catch((error) => {
+          console.log(error.message);
+        })
+        .finally(() => {
+          setLoading(false);
+        });
+    };
     getTransactionList();
   }, [date, onChange]);
 
@@ -59,7 +59,7 @@ function Transaction() {
               <MdOutlinePayment />
               <span>Transactions</span>
             </div>
-            <p>something ~~~~</p>
+            <p>Add, edit, or delete your transactions easily</p>
           </div>
           <MonthPicker value={date} onChange={(prev) => setDate(prev)} />
         </div>
@@ -68,6 +68,7 @@ function Transaction() {
           allTransactionList={allTransactionList}
           date={date}
         />
+
         <div css={s.filterContainer}>
           <TransactionFilterContainer
             allTransactionList={allTransactionList}
@@ -76,7 +77,7 @@ function Transaction() {
           />
         </div>
 
-        <AddTransaction setOnChange={setOnChange} date={date}/>
+        <AddTransaction setOnChange={setOnChange} date={date} />
         <div css={s.transactionContainer}>
           {loading ? (
             <p>Loading...</p>

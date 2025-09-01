@@ -15,10 +15,10 @@ function TransactionOverview({ transaction }) {
           <div
             css={s.circle(
               spendingType === "Income"
-                ? "green"
+                ? "blue"
                 : spendingType === "Expend"
                 ? "red"
-                : "blue"
+                : "green"
             )}
           />
           <p>{transactionDt}</p>
