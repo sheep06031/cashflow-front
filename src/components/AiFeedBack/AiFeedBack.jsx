@@ -35,7 +35,7 @@ function AiFeedBack({ allTransactionList, date }) {
           <p>EN/KR</p>
           <label css={s.switchStyle} className="switch">
             <input type="checkbox" />
-            <span class="slider"></span>
+            <span className="slider"></span>
           </label>
         </div>
       </div>

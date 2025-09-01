@@ -66,23 +66,22 @@ export const filterContainer = css`
 `;
 
 export const filterBtnContainer = css`
-  
-    gap: 2px;
-    display: flex;
-    align-items: center;
-    padding: 10px;
+  gap: 2px;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  background-color: #0061f2;
+  color: white;
+  & > button {
     border: none;
-    border-radius: 6px;
-    background-color: #0061f2;
     color: white;
-    & > button {
-      border: none;
-      color: white;
-      background-color: transparent;
-    }
+    background-color: transparent;
+  }
 
-    &:hover {
-      transform: translateY(-2px)
-    }
+  &:hover {
+    transform: translateY(-2px);
   }
 `;
+

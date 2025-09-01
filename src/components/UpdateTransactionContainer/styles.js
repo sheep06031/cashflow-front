@@ -88,14 +88,14 @@ export const editContainer = css`
   margin-top: 10px;
   border-radius: 12px;
   border-radius: 12px;
-  background: #fff;
+  background: #ffffff;
   box-shadow: 7px 7px 15px #dce0e5, -7px -7px 15px #ffffff;
   color: #333;
   transition: all 0.2s ease;
   cursor: pointer;
   overflow: hidden;
   padding: 0 10px;
-  border: 1px solid #0061f2;
+  border: 2px dashed #0061f2;
 
   & > div {
     height: 65%;

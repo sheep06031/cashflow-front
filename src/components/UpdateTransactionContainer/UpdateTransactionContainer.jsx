@@ -4,7 +4,7 @@ import * as s from "./styles";
 import TransactionOverviewModal from "../Modal/TransactionOverviewModal/TransactionOverviewModal";
 import { IoTrash } from "react-icons/io5";
 import { MdEdit } from "react-icons/md";
-import { removeTransactionRequest } from "../../apis/transaction/transactionApis";
+import { removeTransactionRequest, updateTransactionRequest } from "../../apis/transaction/transactionApis";
 import { FaCheck } from "react-icons/fa";
 import { FaArrowRight } from "react-icons/fa";
 
@@ -25,7 +25,7 @@ function TransactionAddContainer({ transaction, setOnChange }) {
   const deleteBtnOnClickHandler = (transactionId) => {
     removeTransactionRequest(transactionId).then((response) => {
       if (response.data.status === "success") {
-        setOnChange(transactionId);
+        setOnChange((prev) => prev + 1);
         alert(response.data.message);
         return;
       } else if (response.data.status === "falied") {
@@ -34,6 +34,29 @@ function TransactionAddContainer({ transaction, setOnChange }) {
       }
     });
   };
+
+  const updateBtnOnClickHandler = () => {
+    console.log("work1")
+    updateTransactionRequest({
+      transactionId: transactionId,
+      transactionDt: editData.transactionDt,
+      cost: editData.cost,
+      spendingType: editData.spendingType,
+      category: editData.category,
+      description: editData.description
+    }).then((response) => {
+      console.log(response.data)
+      if (response.data.status === "success") {
+        console.log("work2")
+        setOnChange((prev) => prev + 1);
+        setEditMode(false);
+        return;
+      } else if (response.data.status === "falied") {
+        alert(response.data.message);
+        return;
+      }
+    })
+  }
 
   const handleChange = (field, value) => {
     setEditData((prev) => ({ ...prev, [field]: value }));
@@ -92,7 +115,7 @@ function TransactionAddContainer({ transaction, setOnChange }) {
                 css={s.editBox}
                 onClick={(e) => {
                   e.stopPropagation();
-                  setEditMode(true);
+                  updateBtnOnClickHandler()
                 }}
               >
                 <FaCheck />

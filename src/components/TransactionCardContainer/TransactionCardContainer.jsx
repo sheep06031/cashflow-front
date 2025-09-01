@@ -17,7 +17,7 @@ function TransactionCardContainer({ allTransactionList, date }) {
           <p>
             $
             {transactionList
-              .filter((tx) => tx.spendingType === "income")
+              .filter((tx) => tx.spendingType === "Income")
               .reduce((sum, tx) => sum + tx.cost, 0)}
           </p>
         </div>
@@ -31,7 +31,7 @@ function TransactionCardContainer({ allTransactionList, date }) {
           <p>
             $
             {transactionList
-              .filter((tx) => tx.spendingType === "expend")
+              .filter((tx) => tx.spendingType === "Expend")
               .reduce((sum, tx) => sum + tx.cost, 0)}
           </p>
         </div>
@@ -45,7 +45,7 @@ function TransactionCardContainer({ allTransactionList, date }) {
           <p>
             $
             {transactionList
-              .filter((tx) => tx.spendingType === "save")
+              .filter((tx) => tx.spendingType === "Save")
               .reduce((sum, tx) => sum + tx.cost, 0)}
           </p>
         </div>
@@ -59,13 +59,13 @@ function TransactionCardContainer({ allTransactionList, date }) {
           <p>
             $
             {transactionList
-              .filter((tx) => tx.spendingType === "income")
+              .filter((tx) => tx.spendingType === "Income")
               .reduce((sum, tx) => sum + tx.cost, 0) -
               transactionList
-                .filter((tx) => tx.spendingType === "expend")
+                .filter((tx) => tx.spendingType === "Expend")
                 .reduce((sum, tx) => sum + tx.cost, 0) -
               transactionList
-                .filter((tx) => tx.spendingType === "save")
+                .filter((tx) => tx.spendingType === "Save")
                 .reduce((sum, tx) => sum + tx.cost, 0)}
           </p>
         </div>

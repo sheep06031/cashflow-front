@@ -2,15 +2,14 @@
 
 import { MdOutlinePayment } from "react-icons/md";
 import * as s from "./styles";
-import { CiCoinInsert } from "react-icons/ci";
 import TransactionCardContainer from "../../components/TransactionCardContainer/TransactionCardContainer";
 import dayjs from "dayjs";
 import { getTransactionListRequest } from "../../apis/transaction/transactionApis";
 import { useEffect, useState } from "react";
 import MonthPicker from "../../components/MonthPicker/MonthPicker";
 import TransactionFilterContainer from "../../components/TransactionFilterContainer/TransactionFilterContainer";
-import TransactionAddContainer from "../../components/TransactionAddContainer/TransactionAddContainer";
-import { FaPlus } from "react-icons/fa";
+import TransactionAddContainer from "../../components/UpdateTransactionContainer/UpdateTransactionContainer";
+import AddTransaction from "../../components/AddTransaction/AddTransaction";
 
 function Transaction() {
   const [date, setDate] = useState(dayjs());
@@ -70,11 +69,6 @@ function Transaction() {
           date={date}
         />
         <div css={s.filterContainer}>
-          <div css={s.filterBtnContainer}>
-            <button>Add Transaction</button>
-            <FaPlus />
-          </div>
-
           <TransactionFilterContainer
             allTransactionList={allTransactionList}
             date={date}
@@ -82,6 +76,7 @@ function Transaction() {
           />
         </div>
 
+        <AddTransaction setOnChange={setOnChange} date={date}/>
         <div css={s.transactionContainer}>
           {loading ? (
             <p>Loading...</p>
