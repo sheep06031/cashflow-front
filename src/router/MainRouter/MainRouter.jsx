@@ -3,6 +3,7 @@ import Overview from "../../pages/Overview/Overview";
 import Home from "../../pages/Home/Home";
 import ProtectedRoute from "../../components/ProtectedRoute/ProtectedRoute";
 import Transaction from "../../pages/Transaction/Transaction";
+import Feedbacks from "../../pages/Feedbacks/Feedbacks";
 
 function MainRouter() {
   return (
@@ -22,6 +23,14 @@ function MainRouter() {
           element={
             <ProtectedRoute>
               <Transaction />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/feedbacks"
+          element={
+            <ProtectedRoute>
+              <Feedbacks />
             </ProtectedRoute>
           }
         />

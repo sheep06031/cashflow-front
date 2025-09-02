@@ -11,14 +11,13 @@ export const AddTransactionContainer = css`
   border-radius: 12px;
   border-radius: 12px;
   background: #ffffff;
-  box-shadow: 7px 7px 15px #dce0e5, -7px -7px 15px #ffffff;
+
   color: #333;
   transition: all 0.2s ease;
   overflow: hidden;
   padding: 0 10px;
   border: 1px solid #28a745;
   background: #f0fff4;
-
 
   & > div {
     height: 65%;
@@ -41,11 +40,9 @@ export const AddTransactionContainer = css`
   #addCost {
     width: 100px;
     &::-webkit-inner-spin-button {
-        -webkit-appearance: none;
+      -webkit-appearance: none;
     }
   }
-
-  
 
   #addDescription {
     width: 230px;

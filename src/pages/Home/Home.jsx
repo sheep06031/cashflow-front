@@ -224,7 +224,10 @@ function Home() {
         <div css={s.confession}>
           <h2>
             I just couldn’t manage to make the homepage on my own, so I got some
-            help from GPT. I felt guilty keeping it to myself, so here’s the
+            help from GPT. 
+            
+            
+            I felt guilty keeping it to myself, so here’s the
             truth
           </h2>
           <h2>AI is impressive… honestly, it’s a bit scary.</h2>

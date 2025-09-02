@@ -15,6 +15,9 @@ function ProtectedRoute({ children }) {
   if (principalData && location.pathname === "/") {
     return <Navigate to="/overview" replace />;
   }
+  if (principalData && location.pathname === "") {
+    return <Navigate to="/overview" replace />;
+  }
 
   return children;
 }

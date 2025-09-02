@@ -5,7 +5,7 @@ export const background = css`
   min-height: 100vh;
   background: linear-gradient(
         to bottom,
-        #667eea 0px,
+        #0061f2 0px,
         #0061f2 260px,
         transparent 260px
       )
@@ -68,7 +68,7 @@ export const chartCard = css`
   align-items: center;
   background: #fff;
   border-radius: 12px;
-  padding: 20px;
+  padding: 10px;
   box-shadow: 0 0.15rem 1.75rem #21283226;
 `;
 

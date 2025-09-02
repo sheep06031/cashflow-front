@@ -3,15 +3,6 @@ import { css } from "@emotion/react";
 export const background = css`
   width: 100%;
   min-height: 100vh;
-  background: linear-gradient(
-        to bottom,
-        #0061f2 0px,
-        #0061f2 260px,
-        transparent 260px
-      )
-      no-repeat,
-    #f2f6fc;
-
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -35,35 +26,45 @@ export const headerContainer = css`
   align-items: center;
   & > div {
     padding: 24px 0 48px;
-    & > div {
+    & > span {
       margin: 24px 0 0;
       display: flex;
       align-items: center;
       gap: 5px;
-      color: #ffffff80;
+      color: #333;
       font-size: 48px;
       & > span {
-        color: #ffffff;
+        color: #333;
       }
     }
     & > p {
       margin: 4px 0 0;
-      color: #ffffff80;
+      color: #333;
     }
   }
 `;
 
-export const transactionContainer = css`
+export const content = css`
   width: 100%;
-  margin-bottom: 20px;
+  height: auto;
+  height: auto;
+  padding: 10px;
+  background-color: #fff;
+  border-radius: 12px;
 `;
 
-export const filterContainer = css`
+export const yearpicker = css`
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+`;
+
+
+
+export const contentHeader = css`
   width: 100%;
   display: flex;
   justify-content: flex-end;
-  align-items: center;
+  align-items: flex-end;
+  margin-bottom: 10px;
 `;
-
-
-

@@ -45,11 +45,12 @@ function Sidebar({ toggled }) {
         </div>
         <div
           onClick={() => {
-            navigate("/");
+            navigate("/feedbacks");
             setSelected(3);
           }}
         >
-          Feedback
+          <GrGraphQl />
+          Feedbacks
         </div>
       </div>
       <div css={s.footer}>

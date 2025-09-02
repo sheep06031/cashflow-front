@@ -17,3 +17,12 @@ export const getAiFeedback = async (date) => {
     return error.response;
   }
 };
+
+export const getAiFeedbackList = async () => {
+  try {
+    const response = await instance.get("/gpt/feedback/list");
+    return response;
+  } catch (error) {
+    return error.response;
+  }
+};
