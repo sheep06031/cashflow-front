@@ -4,7 +4,7 @@ import * as s from "./styles";
 import { IoIosMenu } from "react-icons/io";
 import { FaUser } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import SignInModal from "../Modal/SigninModal/SigninModal";
 import SignUpModal from "../Modal/SignupModal/SignupModal";
 import logo from "../../assets/headerlogo.png";
@@ -15,11 +15,10 @@ function Header({ toggled, setToggled }) {
   const [openSignin, setOpenSignin] = useState(false);
   const [openSignup, setOpenSignup] = useState(false);
   const navigate = useNavigate();
-  const { isLoggedIn, principal, logout } = usePrincipalState();
+  const { isLoggedIn, logout } = usePrincipalState();
+  
 
-  useEffect(() => {
-    console.log()
-  },[isLoggedIn, principal])
+  
 
   const onClickNavHandler = (path) => {
     navigate(path);
@@ -58,7 +57,7 @@ function Header({ toggled, setToggled }) {
               <p onClick={() => onClickLogoutBtn()}>
                 <MdLogout />
               </p>
-              <p>
+              <p onClick={() => navigate("/mypage")}>
                 <FaUser />
               </p>
             </div>

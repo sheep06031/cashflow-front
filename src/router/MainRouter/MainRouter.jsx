@@ -5,6 +5,7 @@ import ProtectedRoute from "../../components/ProtectedRoute/ProtectedRoute";
 import Transaction from "../../pages/Transaction/Transaction";
 import Feedbacks from "../../pages/Feedbacks/Feedbacks";
 import MyPage from "../../pages/MyPage/MyPage";
+import ChangePassword from "../../pages/Changepassword/ChangePassword";
 
 function MainRouter() {
   return (
@@ -40,6 +41,14 @@ function MainRouter() {
           element={
             <ProtectedRoute>
               <MyPage />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/changepassword"
+          element={
+            <ProtectedRoute>
+              <ChangePassword />
             </ProtectedRoute>
           }
         />

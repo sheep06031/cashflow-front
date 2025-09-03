@@ -22,6 +22,7 @@ export const input = css`
     box-sizing: border-box;
     border-radius: 6px;
     border: 1px solid #dbdbdb;
+    outline: none;
     transition: all 0.2s ease;
 
     &:focus {

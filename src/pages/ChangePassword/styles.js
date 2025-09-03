@@ -10,7 +10,7 @@ export const background = css`
 `;
 
 export const container = css`
-  width: 600px;
+  width: 650px;
   height: auto;
   background-color: #fff;
   border-radius: 12px;
@@ -32,7 +32,7 @@ export const detailCardHeader = css`
 export const detailContent = css`
   width: 100%;
   height: 100%;
-  padding: 22px;
+  padding: 22px 22px 0 22px;
   background-color: #fff;
 
   & > div {
@@ -62,35 +62,32 @@ export const bottom = css`
 export const saveButton = css`
   padding: 10px 14px;
   border: none;
-  color: #333;
-  background-color: #97e9bc;
-  border-radius: 8px;
-`;
-
-export const cancelButton = css`
-  padding: 10px 14px;
-  border: none;
-  color: #333;
-  background-color: #f7ab9f;
-  border-radius: 8px;
-`;
-
-export const btnContainer = css`
-  display: flex;
-  gap: 10px;
-
-  & > button {
-    transition: all 0.2s ease;
-    &:hover {
-      transform: translateY(-2px);
-    }
-  }
-`;
-
-export const editButton = css`
-  padding: 10px 14px;
-  border: none;
   color: #fff;
   background-color: #0061f2;
   border-radius: 8px;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  &:hover {
+    transform: translateY(-2px);
+    background-color: #0154d0;
+  }
+  &:active {
+    transform: translateY(0);
+  }
+`;
+
+export const footer = css`
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0;
+  padding: 0 22px 22px 22px;
+  
+  & > p {
+    padding: 0;
+    margin: 0px;
+    font-size: 12px;
+    color: red;
+  }
 `;

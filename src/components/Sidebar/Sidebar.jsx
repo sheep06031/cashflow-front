@@ -6,7 +6,9 @@ import { GrGraphQl } from "react-icons/gr";
 import { MdOutlinePayment } from "react-icons/md";
 import { usePrincipalState } from "../../store/usePrincipalStore";
 import { AiFillOpenAI } from "react-icons/ai";
-import { FaUser } from "react-icons/fa";
+import { FaLock, FaUser } from "react-icons/fa";
+
+
 
 function Sidebar({ toggled }) {
   const navigate = useNavigate();
@@ -21,6 +23,10 @@ function Sidebar({ toggled }) {
       setSelected(2);
     } else if (location.pathname.startsWith("/feedback")) {
       setSelected(3);
+    } else if (location.pathname.startsWith("/mypage")) {
+      setSelected(4);
+    } else if (location.pathname.startsWith("/chagepassword")) {
+      setSelected(5);
     }
   }, [location.pathname]);
 
@@ -64,6 +70,15 @@ function Sidebar({ toggled }) {
         >
           <FaUser />
           My Page
+        </div>
+        <div
+          onClick={() => {
+            navigate("/changepassword");
+            setSelected(5);
+          }}
+        >
+          <FaLock />
+          Security
         </div>
       </div>
       <div css={s.footer}>
