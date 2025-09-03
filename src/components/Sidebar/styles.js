@@ -49,15 +49,24 @@ export const menuItem = (num) => css`
   flex-direction: column;
   justify-content: flex-start;
 
+
+  & > span {
+    font-size: 16px;
+    color: #a7aeb8;
+    font-weight: 600;
+    padding: 15px 0 0 5px;;
+
+  }
+
   & > div {
-    padding: 10px;
+    padding: 10px 0 0 40px;
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    font-size: 18px;
-    font-weight: 500;
+    font-size: 16px;
+    font-weight: 400;
     height: 40px;
-    gap: 7px;
+    gap: 14px;
     color: #333;
   }
 

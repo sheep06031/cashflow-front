@@ -4,7 +4,8 @@ export const container = css`
   display: grid;
   width: 100%;
   height: auto;
-  grid-template-columns: repeat(auto-fill, 300px);
+  /* grid-template-columns: repeat(auto-fill, 300px); */
+  grid-template-columns: repeat(4, 1fr);
   justify-content: space-between;
   gap: 10px;
   box-sizing: border-box;

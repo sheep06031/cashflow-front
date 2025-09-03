@@ -4,8 +4,8 @@ export const feedbackBox = css`
   display: flex;
   align-items: center;
   flex-direction: column;
-  width: 800px;
-  height: 900px;
+  width: 70vw;
+  height: 80vh;
   background: white;
   border-radius: 12px;
   padding: 20px;

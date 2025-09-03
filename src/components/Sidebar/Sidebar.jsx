@@ -5,6 +5,8 @@ import { useEffect, useState } from "react";
 import { GrGraphQl } from "react-icons/gr";
 import { MdOutlinePayment } from "react-icons/md";
 import { usePrincipalState } from "../../store/usePrincipalStore";
+import { AiFillOpenAI } from "react-icons/ai";
+import { FaUser } from "react-icons/fa";
 
 function Sidebar({ toggled }) {
   const navigate = useNavigate();
@@ -25,6 +27,7 @@ function Sidebar({ toggled }) {
   return (
     <aside css={s.sidebar(toggled)}>
       <div css={s.menuItem(selcted)}>
+        <span>Service</span>
         <div
           onClick={() => {
             navigate("/overview");
@@ -49,8 +52,18 @@ function Sidebar({ toggled }) {
             setSelected(3);
           }}
         >
-          <GrGraphQl />
+          <AiFillOpenAI />
           Feedbacks
+        </div>
+        <span>Account</span>
+        <div
+          onClick={() => {
+            navigate("/mypage");
+            setSelected(4);
+          }}
+        >
+          <FaUser />
+          My Page
         </div>
       </div>
       <div css={s.footer}>
