@@ -13,6 +13,7 @@ function SignUpModal({ onClose }) {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [code, setCode] = useState("");
   const [message, setMessage] = useState("");
+  const [timeLeft, setTimeLeft] = useState(300);
 
   const handleSendMail = (e) => {
     e.preventDefault();
@@ -47,9 +48,28 @@ function SignUpModal({ onClose }) {
       });
   };
 
+  const handleResend = (e) => {
+    e.preventDefault();
+    setStep("loading");
+    sendMailRequest({ username: username, email: email, password: password })
+      .then((response) => {
+        if (response.data.status === "success") {
+          setStep("verify");
+          setMessage("New verification code has been sent to your email");
+        } else {
+          setStep("verify");
+          setMessage(response.data.message);
+        }
+      })
+      .catch((err) => {
+        setStep("verify");
+        setMessage(err.message);
+      })
+      .finally(setCode(""));
+  };
+
   const handleVerify = (e) => {
     e.preventDefault();
-
     if (!code) {
       setMessage("Enter the verification code");
       return;
@@ -63,14 +83,15 @@ function SignUpModal({ onClose }) {
         if (response.data.status === "success") {
           setStep("success");
         } else {
-          setStep("form");
+          setStep("verify");
           setMessage(response.data.message);
         }
       })
       .catch((err) => {
         setStep("form");
         setMessage(err.message);
-      });
+      })
+      .finally(setCode(""));
   };
 
   useEffect(() => {
@@ -95,6 +116,31 @@ function SignUpModal({ onClose }) {
 
     setMessage("");
   }, [password, email]);
+
+  useEffect(() => {
+    if (step === "verify") {
+      setTimeLeft(300);
+      const timer = setInterval(() => {
+        setTimeLeft((prev) => {
+          if (prev <= 1) {
+            clearInterval(timer);
+            return 0;
+          }
+          return prev - 1;
+        });
+      }, 1000);
+
+      return () => clearInterval(timer);
+    }
+  }, [step]);
+
+  const formatTime = (seconds) => {
+    const m = Math.floor(seconds / 60)
+      .toString()
+      .padStart(2, "0");
+    const s = (seconds % 60).toString().padStart(2, "0");
+    return `${m}:${s}`;
+  };
 
   return (
     <Modal onClose={onClose}>
@@ -156,14 +202,21 @@ function SignUpModal({ onClose }) {
         {step === "verify" && (
           <>
             <h1>Verifying</h1>
-            <form onSubmit={handleVerify}>
-              <input
-                type="text"
-                placeholder="Enter 5-digit code"
-                value={code}
-                onChange={(e) => setCode(e.target.value)}
-              />
-              <button type="submit">Verify</button>
+            <form css={s.codeContainer} onSubmit={handleVerify}>
+              <span>
+                <input
+                  type="text"
+                  placeholder="Enter 5-digit code"
+                  value={code}
+                  onChange={(e) => setCode(e.target.value)}
+                />
+                <div css={s.timer}>{formatTime(timeLeft)}</div>
+              </span>
+
+              <div css={s.btnContainer}>
+                <button onClick={handleResend}>Resend code</button>
+                <button type="submit">Verify</button>
+              </div>
               <div className={`error-box ${message ? "show" : ""}`}>
                 <p>{message}</p>
               </div>
@@ -171,17 +224,17 @@ function SignUpModal({ onClose }) {
           </>
         )}
         {step === "success" && (
-        <div css={s.successBox}>
-          <img
-            src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/Partying%20Face.png"
-            alt="Partying Face"
-            width="250"
-            height="250"
-          />
-          <h1>Welcome 🎉</h1>
-          <p>Your account has been created successfully!</p>
-        </div>
-      )}
+          <div css={s.successBox}>
+            <img
+              src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/Partying%20Face.png"
+              alt="Partying Face"
+              width="250"
+              height="250"
+            />
+            <h1>Welcome 🎉</h1>
+            <p>Your account has been created successfully!</p>
+          </div>
+        )}
       </div>
     </Modal>
   );

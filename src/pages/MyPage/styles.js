@@ -80,9 +80,13 @@ export const btnContainer = css`
   gap: 10px;
 
   & > button {
+    cursor: pointer;
     transition: all 0.2s ease;
     &:hover {
       transform: translateY(-2px);
+    }
+    &:active {
+      transform: translateY(0);
     }
   }
 `;

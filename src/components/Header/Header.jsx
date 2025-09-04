@@ -2,7 +2,7 @@
 import * as s from "./styles";
 
 import { IoIosMenu } from "react-icons/io";
-import { FaUser } from "react-icons/fa";
+import { FaLock, FaUser } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import SignInModal from "../Modal/SigninModal/SigninModal";
@@ -16,9 +16,6 @@ function Header({ toggled, setToggled }) {
   const [openSignup, setOpenSignup] = useState(false);
   const navigate = useNavigate();
   const { isLoggedIn, logout } = usePrincipalState();
-  
-
-  
 
   const onClickNavHandler = (path) => {
     navigate(path);

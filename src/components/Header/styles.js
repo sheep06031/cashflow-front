@@ -49,7 +49,6 @@ export const sideBarToggleBtn = (toggled) => css`
 
   &:hover {
     background-color: #eee;
-    
   }
 
   &:active {
@@ -64,6 +63,7 @@ export const sideBarToggleBtn = (toggled) => css`
 `;
 
 export const userContainer = css`
+  position: relative;
   & > div {
     display: flex;
     align-items: center;
@@ -136,3 +136,6 @@ export const logo = css`
   height: auto;
   object-fit: cover;
 `;
+
+
+
