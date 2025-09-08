@@ -36,7 +36,6 @@ Unlike traditional budget apps, Cashflow leverages **AI-driven insights** to ana
 ---
 
 ## 🏗️ Architecture
-*(Add a diagram if available)*  
 - **Frontend** → React app for user interaction  
 - **Backend** → Spring Boot REST API with JWT authentication  
 - **Database** → MySQL for persistent storage  
@@ -60,6 +59,25 @@ Unlike traditional budget apps, Cashflow leverages **AI-driven insights** to ana
 
 <img width="461" height="431" alt="Image" src="https://github.com/user-attachments/assets/5f3da0f9-5548-4c32-95b2-4438ccb2766c" />
 <img width="422" height="320" alt="Image" src="https://github.com/user-attachments/assets/6988f863-f432-41b7-afe2-69cfdd97c510" />
+
+## Overview
+- Provides a clear summary of your monthly income, expenses, and savings.
+- Displays balance trends with interactive charts.
+- Generate AI Feedback for seleceted month transactions.
+
+<img width="1440" height="813" alt="Image" src="https://github.com/user-attachments/assets/64b80e12-fc58-4485-91ca-80988a7b7ded" />
+<img width="1440" height="815" alt="Image" src="https://github.com/user-attachments/assets/48126a37-28eb-4ecd-83d9-6adc91dafe45" />
+
+## Transactions
+- Add, edit, and delete transactions.
+- Categorize spending (e.g., Food, Transport, Savings).
+
+<img width="1435" height="811" alt="Image" src="https://github.com/user-attachments/assets/37465410-0473-4f8f-ad91-a5e530638b3a" />
+
+## Feedbacks
+- Displays all previously generated AI feedback in one place.
+
+<img width="1440" height="810" alt="Image" src="https://github.com/user-attachments/assets/a7af3354-67b0-4c13-9321-f75c15c0848b" />
 
 ---
 
