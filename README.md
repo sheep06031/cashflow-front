@@ -28,6 +28,11 @@ Unlike traditional budget apps, Cashflow leverages **AI-driven insights** to ana
 
 ---
 
+## 🎯 Project Purpose
+With the rapid development of AI, many modern websites are introducing AI-powered features as add-ons. The main purpose of this project was to experiment with building a web application that integrates AI using external APIs. Through this project, I aimed to explore how AI can enhance user experience by providing personalized financial insights.
+
+---
+
 ## 🛠️ Tech Stack
 **Frontend:** React, Vite, Emotion  
 **Backend:** Spring Boot, MySQL, Redis, JWT  
@@ -79,10 +84,20 @@ Unlike traditional budget apps, Cashflow leverages **AI-driven insights** to ana
 
 <img width="1440" height="810" alt="Image" src="https://github.com/user-attachments/assets/a7af3354-67b0-4c13-9321-f75c15c0848b" />
 
+## Account services
+
+<img width="804" height="458" alt="Image" src="https://github.com/user-attachments/assets/68835ea9-510e-494f-833a-a8a61540a624" />
+<img width="720" height="428" alt="Image" src="https://github.com/user-attachments/assets/e359a119-f969-48a6-80b5-84ba09ba7be4" />
+
 ---
+# 📝 Reflections
 
+During the project, many of the ideas I initially planned changed along the way, which meant I had to repeatedly modify the code and restructure parts of the system. If I had more prior experience, I could have finalized the architecture earlier and minimized these changes. I realized that my lack of experience made the process more challenging.
 
-## 📜 License
-Distributed under the **MIT License**. See `LICENSE` for more information.
+In particular, Spring Boot Security became a major obstacle. I still haven’t fully adapted to it, and I feel that I need to continue studying this area to gain more confidence.
+
+On the CSS side, I initially used fixed pixel values for element sizes. Later, I understood that this approach ignored different user environments. Since my development environment was a MacBook, I assumed the layout looked fine, but I didn’t account for larger or smaller screens. In future projects, I plan to use relative units like REM to make the design more responsive and user-friendly.
+
+Another challenge was working with Docker. Since I had not studied Docker in detail before, I experienced many trials and errors. Running the project locally versus deploying it with Docker on AWS EC2 required more adjustments in the code than I had expected. I realized that I need to study Docker more thoroughly to handle deployment more effectively in future projects.
 
 ---
