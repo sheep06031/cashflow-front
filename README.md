@@ -14,7 +14,7 @@ Unlike traditional budget apps, Cashflow leverages **AI-driven insights** to ana
 
 ---
 
-## ✨ Features
+## ✨  eatures
 - 📒 **Transaction Management** – Log income, expenses, and savings with categories  
 - 📊 **AI Feedback** – Get monthly comparisons and personalized recommendations  
 - 🔎 **Spending Insights** – Detect habits and track long-term trends  
@@ -22,10 +22,9 @@ Unlike traditional budget apps, Cashflow leverages **AI-driven insights** to ana
 
 ---
 
-## 🖥️ Demo
-*(Screenshots or demo link here)*  
-Example:  
-![screenshot](./assets/demo.png)
+## 📆 Project Duration
+
+- 2025.07.30 ~ 2025.09.10
 
 ---
 
@@ -46,18 +45,19 @@ Example:
 
 ---
 
-## 🚀 Roadmap
+## 🖥️ Preview
 
-- 🤖 Smarter AI recommendations  
-- 👥 Multi-user household support  
+### Home Page
+<img width="1440" height="812" alt="Image" src="https://github.com/user-attachments/assets/affc81f0-3064-47a6-857d-b74210d1f841" />
 
+## Sign in
+<img width="476" height="347" alt="Image" src="https://github.com/user-attachments/assets/21095ff3-5a3c-4fe5-9711-ce6b784c860d" />
+
+## Sign up
+<img width="461" height="431" alt="Image" src="https://github.com/user-attachments/assets/5f3da0f9-5548-4c32-95b2-4438ccb2766c" />
+<img width="422" height="320" alt="Image" src="https://github.com/user-attachments/assets/6988f863-f432-41b7-afe2-69cfdd97c510" />
 ---
 
-## 🤝 Contributing
-Contributions, issues, and feature requests are welcome!  
-Feel free to open a Pull Request or start a discussion.
-
----
 
 ## 📜 License
 Distributed under the **MIT License**. See `LICENSE` for more information.
