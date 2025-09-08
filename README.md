@@ -49,6 +49,14 @@ With the rapid development of AI, many modern websites are introducing AI-powere
 
 ---
 
+## ERD Diagram
+
+<img width="744" height="725" alt="Image" src="https://github.com/user-attachments/assets/ae43bc31-a7f9-45ab-9730-9b750d952a83" />
+
+
+---
+
+
 ## 🖥️ Preview
 
 ### Home Page
@@ -56,16 +64,16 @@ With the rapid development of AI, many modern websites are introducing AI-powere
 
 <img width="1440" height="812" alt="Image" src="https://github.com/user-attachments/assets/affc81f0-3064-47a6-857d-b74210d1f841" />
 
-## Sign in
+### Sign in
 <img width="476" height="347" alt="Image" src="https://github.com/user-attachments/assets/21095ff3-5a3c-4fe5-9711-ce6b784c860d" />
 
-## Sign up
+### Sign up
 - Sign up using the code sent to your email
 
 <img width="461" height="431" alt="Image" src="https://github.com/user-attachments/assets/5f3da0f9-5548-4c32-95b2-4438ccb2766c" />
 <img width="422" height="320" alt="Image" src="https://github.com/user-attachments/assets/6988f863-f432-41b7-afe2-69cfdd97c510" />
 
-## Overview
+### Overview
 - Provides a clear summary of your monthly income, expenses, and savings.
 - Displays balance trends with interactive charts.
 - Generate AI Feedback for seleceted month transactions.
@@ -73,24 +81,24 @@ With the rapid development of AI, many modern websites are introducing AI-powere
 <img width="1440" height="813" alt="Image" src="https://github.com/user-attachments/assets/64b80e12-fc58-4485-91ca-80988a7b7ded" />
 <img width="1440" height="815" alt="Image" src="https://github.com/user-attachments/assets/48126a37-28eb-4ecd-83d9-6adc91dafe45" />
 
-## Transactions
+### Transactions
 - Add, edit, and delete transactions.
 - Categorize spending (e.g., Food, Transport, Savings).
 
 <img width="1435" height="811" alt="Image" src="https://github.com/user-attachments/assets/37465410-0473-4f8f-ad91-a5e530638b3a" />
 
-## Feedbacks
+### Feedbacks
 - Displays all previously generated AI feedback in one place.
 
 <img width="1440" height="810" alt="Image" src="https://github.com/user-attachments/assets/a7af3354-67b0-4c13-9321-f75c15c0848b" />
 
-## Account services
+### Account services
 
 <img width="804" height="458" alt="Image" src="https://github.com/user-attachments/assets/68835ea9-510e-494f-833a-a8a61540a624" />
 <img width="720" height="428" alt="Image" src="https://github.com/user-attachments/assets/e359a119-f969-48a6-80b5-84ba09ba7be4" />
 
 ---
-# 📝 Reflections
+## 📝 Reflections
 
 During the project, many of the ideas I initially planned changed along the way, which meant I had to repeatedly modify the code and restructure parts of the system. If I had more prior experience, I could have finalized the architecture earlier and minimized these changes. I realized that my lack of experience made the process more challenging.
 
