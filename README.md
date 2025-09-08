@@ -56,6 +56,7 @@ Unlike traditional budget apps, Cashflow leverages **AI-driven insights** to ana
 ## Sign up
 <img width="461" height="431" alt="Image" src="https://github.com/user-attachments/assets/5f3da0f9-5548-4c32-95b2-4438ccb2766c" />
 <img width="422" height="320" alt="Image" src="https://github.com/user-attachments/assets/6988f863-f432-41b7-afe2-69cfdd97c510" />
+
 ---
 
 
