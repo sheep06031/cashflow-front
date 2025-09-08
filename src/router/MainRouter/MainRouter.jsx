@@ -5,8 +5,7 @@ import ProtectedRoute from "../../components/ProtectedRoute/ProtectedRoute";
 import Transaction from "../../pages/Transaction/Transaction";
 import Feedbacks from "../../pages/Feedbacks/Feedbacks";
 import MyPage from "../../pages/MyPage/MyPage";
-import ChangePassword from "../../pages/Changepassword/ChangePassword";
-
+import ChangePassword from "../../pages/ChangePassword/ChangePassword";
 
 function MainRouter() {
   return (

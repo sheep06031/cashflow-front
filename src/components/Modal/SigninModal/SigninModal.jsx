@@ -4,12 +4,14 @@ import Modal from "../Modal";
 import { IoClose } from "react-icons/io5";
 import { signinRequest } from "../../../apis/auth/authApis";
 import { useState } from "react";
+import { usePrincipalState } from "../../../store/usePrincipalStore";
 
 
 function SignInModal({ onClose }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
+  const { login } = usePrincipalState.getState((state) => state.login);
 
 
   const signinOnSubmitHandler = (e) => {
@@ -26,8 +28,10 @@ function SignInModal({ onClose }) {
         .then((response) => {
           if (response.data.status === "success") {
             localStorage.setItem("accessToken", response.data.data);
+            login(response.data.data);
             onClose();
             window.location.href = "/overview"
+            
           } else if (response.data.status === "failed") {
             setMessage(response.data.message);
             return;
