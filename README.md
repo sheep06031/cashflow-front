@@ -1,12 +1,65 @@
-# React + Vite
+<div align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:b0e13d,100:614fe8&height=180&text=Cashflow&animation=&fontColor=ffffff&fontSize=60" />
+  <h3>A personal finance tracker powered by AI 🚀</h3>
+</div>
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+---
 
-Currently, two official plugins are available:
+## 📌 Overview
+**Cashflow** is a web-based personal finance tracker that helps you manage your **income, expenses, and savings**.  
+Unlike traditional budget apps, Cashflow leverages **AI-driven insights** to analyze your financial behavior and provide personalized feedback:
+- What changed compared to last month
+- Your spending patterns
+- Actionable tips to improve your financial health
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## ✨ Features
+- 📒 **Transaction Management** – Log income, expenses, and savings with categories  
+- 📊 **AI Feedback** – Get monthly comparisons and personalized recommendations  
+- 🔎 **Spending Insights** – Detect habits and track long-term trends  
+- 🎯 **Goal Tracking** – Set savings goals and measure your progress  
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 🖥️ Demo
+*(Screenshots or demo link here)*  
+Example:  
+![screenshot](./assets/demo.png)
+
+---
+
+## 🛠️ Tech Stack
+**Frontend:** React, Vite, Emotion  
+**Backend:** Spring Boot, MySQL, Redis, JWT  
+**Deployment:** Docker, AWS EC2  
+
+---
+
+## 🏗️ Architecture
+*(Add a diagram if available)*  
+- **Frontend** → React app for user interaction  
+- **Backend** → Spring Boot REST API with JWT authentication  
+- **Database** → MySQL for persistent storage  
+- **Cache** → Redis for email verification & sessions  
+- **Deployment** → Dockerized microservices on AWS EC2  
+
+---
+
+## 🚀 Roadmap
+
+- 🤖 Smarter AI recommendations  
+- 👥 Multi-user household support  
+
+---
+
+## 🤝 Contributing
+Contributions, issues, and feature requests are welcome!  
+Feel free to open a Pull Request or start a discussion.
+
+---
+
+## 📜 License
+Distributed under the **MIT License**. See `LICENSE` for more information.
+
+---
